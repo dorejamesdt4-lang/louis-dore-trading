@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Shifting Mansion — Development Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#090b0c">
+</head>
+<body>
+  <div class="scanlines"></div>
+  <div class="vignette"></div>
+
+  <!-- Animated cinematic background -->
+  <section class="mansion-scene" aria-hidden="true">
+    <div class="moon"></div>
+    <div class="cloud cloud-a"></div>
+    <div class="cloud cloud-b"></div>
+
+    <div class="mansion">
+      <div class="roof roof-main"></div>
+      <div class="roof roof-east"></div>
+      <div class="roof roof-west"></div>
+
+      <div class="tower tower-left">
+        <div class="window window-tall"></div>
+        <div class="window window-small"></div>
+      </div>
+
+      <div class="tower tower-right">
+        <div class="window window-tall"></div>
+        <div class="window window-small"></div>
+      </div>
+
+      <div class="mansion-body">
+        <div class="attic-window"></div>
+
+        <div class="window-row">
+          <span class="window warm"></span>
+          <span class="window dark"></span>
+          <span class="window flicker"></span>
+          <span class="window dark"></span>
+          <span class="window warm"></span>
+        </div>
+
+        <div class="balcony">
+          <div class="balcony-door"></div>
+          <i></i><i></i><i></i><i></i><i></i>
+        </div>
+
+        <div class="window-row lower">
+          <span class="window dark"></span>
+          <span class="window dark"></span>
+          <span class="window blue"></span>
+          <span class="window dark"></span>
+          <span class="window flicker"></span>
+        </div>
+
+        <div class="entrance">
+          <div class="door"></div>
+          <div class="steps"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="garden">
+      <div class="tree tree-left"></div>
+      <div class="tree tree-right"></div>
+      <div class="fog fog-one"></div>
+      <div class="fog fog-two"></div>
+      <div class="path"></div>
+      <div class="grass"></div>
+    </div>
+
+    <!-- Original faceless silhouette -->
+    <div class="walker">
+      <div class="walker-head"></div>
+      <div class="walker-body"></div>
+      <div class="walker-arm arm-left"></div>
+      <div class="walker-arm arm-right"></div>
+      <div class="walker-leg leg-left"></div>
+      <div class="walker-leg leg-right"></div>
+    </div>
+  </section>
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark">M</div>
+      <div>
+        <span class="eyebrow">PROJECT // HORROR-01</span>
+        <h1>THE SHIFTING MANSION</h1>
+      </div>
+    </div>
+
+    <div class="status">
+      <span class="status-dot"></span>
+      <span>SYSTEM ONLINE</span>
+      <span class="divider"></span>
+      <span>BUILD 0.1.0</span>
+    </div>
+  </header>
+
+  <main class="dashboard">
+    <aside class="sidebar">
+      <div class="side-label">DEVELOPMENT</div>
+
+      <button class="nav-btn active" data-tab="overview">
+        <span class="icon">◈</span><span>Overview</span>
+      </button>
+      <button class="nav-btn" data-tab="mansion">
+        <span class="icon">⌂</span><span>Mansion</span>
+      </button>
+      <button class="nav-btn" data-tab="rooms">
+        <span class="icon">▦</span><span>Room Shifting</span>
+      </button>
+      <button class="nav-btn" data-tab="play">
+        <span class="icon">▶</span><span>Play Mansion</span>
+      </button>
+      <button class="nav-btn" data-tab="entities">
+        <span class="icon">◌</span><span>Entities</span>
+      </button>
+      <button class="nav-btn" data-tab="garden">
+        <span class="icon">♧</span><span>Garden</span>
+      </button>
+      <button class="nav-btn" data-tab="audio">
+        <span class="icon">♫</span><span>Audio</span>
+      </button>
+      <button class="nav-btn" data-tab="assets">
+        <span class="icon">◇</span><span>Source Assets</span>
+      </button>
+      <button class="nav-btn" data-tab="build">
+        <span class="icon">⌘</span><span>Build / Test</span>
+      </button>
+
+      <div class="sidebar-bottom">
+        <div class="mini-readout">
+          <span>ATMOSPHERE</span>
+          <strong>UNSTABLE</strong>
+        </div>
+        <div class="mini-readout">
+          <span>MANSION STATE</span>
+          <strong id="mansionState">WATCHING</strong>
+        </div>
+      </div>
+    </aside>
+
+    <section class="workspace">
+
+      <!-- OVERVIEW -->
+      <div class="tab-panel active" id="overview">
+        <div class="hero-copy">
+          <span class="eyebrow">DEVELOPMENT CONTROL ROOM</span>
+          <h2>WELCOME TO<br><em>THE HOUSE.</em></h2>
+          <p>A browser-based command centre for building an original psychological horror experience around a mansion that refuses to stay the same.</p>
+          <div class="hero-actions">
+            <button class="primary" data-tab-target="mansion">ENTER MANSION <span>→</span></button>
+            <button class="ghost" data-tab-target="rooms">ROOM SYSTEM <span>↗</span></button>
+          </div>
+        </div>
+
+        <div class="dashboard-grid">
+          <article class="stat-card">
+            <span>WORLD</span>
+            <strong>MANSION</strong>
+            <small>Primary environment</small>
+          </article>
+          <article class="stat-card">
+            <span>CORE MECHANIC</span>
+            <strong>SHIFTING</strong>
+            <small>Room / prop manipulation</small>
+          </article>
+          <article class="stat-card">
+            <span>THREAT STYLE</span>
+            <strong>STALKING</strong>
+            <small>Entities appear when unseen</small>
+          </article>
+          <article class="stat-card warning-card">
+            <span>DEVELOPMENT</span>
+            <strong>PRE-PROTOTYPE</strong>
+            <small>Browser dashboard stage</small>
+          </article>
+        </div>
+
+        <div class="section-heading">
+          <span>PROJECT BOARD</span>
+          <i></i>
+        </div>
+
+        <div class="project-board">
+          <div class="board-item"><b>01</b><span>World & Mansion</span><em>PLANNING</em></div>
+          <div class="board-item"><b>02</b><span>Room Shifting</span><em>DESIGN</em></div>
+          <div class="board-item"><b>03</b><span>Entity Behaviour</span><em>CONCEPT</em></div>
+          <div class="board-item"><b>04</b><span>Garden Contrast</span><em>PLANNING</em></div>
+        </div>
+      </div>
+
+      <!-- MANSION -->
+      <div class="tab-panel" id="mansion">
+        <div class="panel-header">
+          <div>
+            <span class="eyebrow">WORLD DESIGN</span>
+            <h2>MANSION CONTROL</h2>
+          </div>
+          <span class="badge">ENVIRONMENT</span>
+        </div>
+
+        <div class="content-columns">
+          <div class="terminal-card large">
+            <div class="terminal-head"><span>◉ MANSION STATUS</span><span>LIVE</span></div>
+            <div class="terminal-body">
+              <div class="readout-line"><span>MAIN HALL</span><strong>LOADED</strong></div>
+              <div class="readout-line"><span>EAST WING</span><strong>STABLE</strong></div>
+              <div class="readout-line"><span>WEST WING</span><strong>UNKNOWN</strong></div>
+              <div class="readout-line"><span>BOTANICAL GARDEN</span><strong>AVAILABLE</strong></div>
+              <div class="readout-line"><span>EXIT ROUTE</span><strong class="red">UNRELIABLE</strong></div>
+            </div>
+          </div>
+
+          <div class="note-card">
+            <span class="eyebrow">DESIGN PRINCIPLE</span>
+            <h3>The house changes<br>when you aren't looking.</h3>
+            <p>The mansion acts as the game's structural anchor. Rooms can be swapped or their contents manipulated without warning.</p>
+          </div>
+        </div>
+
+        <div class="blueprint">
+          <div class="blueprint-title">MANSION FLOW // PROTOTYPE</div>
+          <div class="node-row">
+            <div class="map-node">GRAND<br>HALL</div><i></i>
+            <div class="map-node">EAST<br>WING</div><i></i>
+            <div class="map-node danger">SHIFT<br>TRIGGER</div><i></i>
+            <div class="map-node">UNKNOWN<br>ROOM</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ROOMS -->
+      <div class="tab-panel" id="rooms">
+        <div class="panel-header">
+          <div>
+            <span class="eyebrow">CORE SYSTEM</span>
+            <h2>ROOM SHIFTING</h2>
+          </div>
+          <span class="badge">PROTOTYPE</span>
+        </div>
+
+        <div class="variant-grid">
+          <article class="variant"><span class="variant-number">ROOM 01</span><div class="room-sketch normal"></div><h3>GRAND HALL</h3><p>The mansion's anchor. Doors and staircases can shift.</p><button class="small-btn">SET ACTIVE</button></article>
+          <article class="variant"><span class="variant-number">ROOM 02</span><div class="room-sketch wrong"></div><h3>WEST LIBRARY</h3><p>Books, portraits and a clock that never agrees with itself.</p><button class="small-btn">SET ACTIVE</button></article>
+          <article class="variant"><span class="variant-number">ROOM 03</span><div class="room-sketch nightmare"></div><h3>RED DRAWING ROOM</h3><p>Warm light, wrong shadows and a door that moves.</p><button class="small-btn">SET ACTIVE</button></article>
+          <article class="variant"><span class="variant-number">ROOM 04</span><div class="room-sketch normal blue"></div><h3>CONSERVATORY</h3><p>Moonlit glass, overgrown plants and a locked cabinet.</p><button class="small-btn">SET ACTIVE</button></article>
+          <article class="variant"><span class="variant-number">ROOM 05</span><div class="room-sketch wrong green"></div><h3>DINING ROOM</h3><p>The table is always set — but never for the same guests.</p><button class="small-btn">SET ACTIVE</button></article>
+          <article class="variant"><span class="variant-number">ROOM 06</span><div class="room-sketch nightmare violet"></div><h3>ATTIC</h3><p>Low beams, old trunks and evidence that the house remembers.</p><button class="small-btn">SET ACTIVE</button></article>
+          <article class="variant"><span class="variant-number">ROOM 07</span><div class="room-sketch normal gold"></div><h3>WEST BEDROOM</h3><p>A quiet bedroom with a wardrobe that is never empty.</p><button class="small-btn">SET ACTIVE</button></article>
+          <article class="variant"><span class="variant-number">ROOM 08</span><div class="room-sketch wrong blue"></div><h3>BASEMENT ARCHIVE</h3><p>Records, keys and a route that should not exist.</p><button class="small-btn">SET ACTIVE</button></article>
+          <article class="variant"><span class="variant-number">ROOM 09</span><div class="room-sketch nightmare green"></div><h3>BOTANICAL GARDEN</h3><p>The apparent safe zone. The house is learning how to follow.</p><button class="small-btn">SET ACTIVE</button></article>
+        </div>
+
+        <div class="logic-strip">
+          <span>PLAYER ENTERS</span><b>→</b><span>ROOM ACTIVE</span><b>→</b><span>PLAYER LEAVES</span><b>→</b><span class="red">SHIFT</span><b>→</b><span>RETURN</span>
+        </div>
+      </div>
+
+      <!-- PLAY -->
+      <div class="tab-panel" id="play">
+        <div class="panel-header"><div><span class="eyebrow">ANDROID / TOUCH MODE</span><h2>PLAY MANSION</h2></div><span class="badge">OFFLINE READY</span></div>
+        <div class="game-shell">
+          <div class="game-screen" id="gameScreen">
+            <div class="game-room-label" id="gameRoomLabel">GRAND HALL</div>
+            <div class="game-door door-a"></div><div class="game-door door-b"></div>
+            <div class="game-player" id="gamePlayer"></div><div class="game-entity" id="gameEntity"></div>
+            <div class="game-message" id="gameMessage">Find the exit. The house may move before you do.</div>
+          </div>
+          <div class="touch-controls" aria-label="Touch controls">
+            <button data-move="up">▲</button><button data-move="left">◀</button><button data-action="interact">◎</button><button data-move="right">▶</button><button data-move="down">▼</button>
+          </div>
+          <div class="game-toolbar"><button class="primary" id="shiftRoom">SHIFT ROOM</button><button class="ghost" id="newGame">NEW RUN</button><span id="androidStatus">TOUCH READY</span></div>
+        </div>
+      </div>
+
+      <!-- ENTITIES -->
+      <div class="tab-panel" id="entities">
+        <div class="panel-header">
+          <div>
+            <span class="eyebrow">THREAT DESIGN</span>
+            <h2>ENTITIES</h2>
+          </div>
+          <span class="badge danger-badge">UNKNOWN</span>
+        </div>
+
+        <div class="entity-layout">
+          <div class="entity-preview">
+            <div class="entity-shadow"></div>
+            <div class="entity-warning">NO FACE // NO IDENTITY</div>
+          </div>
+          <div class="entity-info">
+            <span class="eyebrow">ENTITY PROFILE 001</span>
+            <h3>THE WALKER</h3>
+            <p>An original faceless figure designed around absence, distance and uncertainty rather than graphic violence.</p>
+            <div class="readout-line"><span>VISIBILITY</span><strong>LOW</strong></div>
+            <div class="readout-line"><span>BEHAVIOUR</span><strong>STALK</strong></div>
+            <div class="readout-line"><span>ATTACK</span><strong>UNDEFINED</strong></div>
+            <div class="readout-line"><span>RULE</span><strong>MOVE WHEN UNSEEN</strong></div>
+            <button class="primary full">OPEN ENTITY WORKBENCH →</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- GARDEN -->
+      <div class="tab-panel" id="garden">
+        <div class="panel-header">
+          <div>
+            <span class="eyebrow">ENVIRONMENT CONTRAST</span>
+            <h2>BOTANICAL GARDEN</h2>
+          </div>
+          <span class="badge">SAFE ZONE?</span>
+        </div>
+        <div class="garden-card">
+          <div class="garden-moon"></div>
+          <div class="garden-glass"></div>
+          <div class="garden-fog"></div>
+          <div class="garden-copy">
+            <span class="eyebrow">THE ILLUSION OF SAFETY</span>
+            <h3>OPEN SKY.<br>DARK SHADOWS.</h3>
+            <p>The garden provides a visual and emotional contrast to the cramped mansion. As the story progresses, even this space can begin to change.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- AUDIO -->
+      <div class="tab-panel" id="audio">
+        <div class="panel-header">
+          <div>
+            <span class="eyebrow">ATMOSPHERE</span>
+            <h2>AUDIO LAB</h2>
+          </div>
+          <span class="badge">PLACEHOLDERS</span>
+        </div>
+        <div class="audio-list">
+          <div class="audio-row"><span class="audio-play">▶</span><div><b>FLUORESCENT HUM</b><small>Interior ambient loop</small></div><span class="audio-status">READY</span></div>
+          <div class="audio-row"><span class="audio-play">▶</span><div><b>FLOORBOARD CREAK</b><small>Random environmental event</small></div><span class="audio-status">READY</span></div>
+          <div class="audio-row"><span class="audio-play">▶</span><div><b>GARDEN WIND</b><small>Exterior ambient loop</small></div><span class="audio-status">READY</span></div>
+          <div class="audio-row"><span class="audio-play">▶</span><div><b>UNKNOWN MOVEMENT</b><small>Entity proximity cue</small></div><span class="audio-status pending">PENDING</span></div>
+        </div>
+      </div>
+
+      <!-- ASSETS -->
+      <div class="tab-panel" id="assets">
+        <div class="panel-header">
+          <div>
+            <span class="eyebrow">SOURCE MATERIAL</span>
+            <h2>ASSET LIBRARY</h2>
+          </div>
+          <span class="badge">LOCAL</span>
+        </div>
+        <div class="folder-grid">
+          <div class="folder"><span>◈</span><b>Entities</b><small>Original PNG / PSD</small></div>
+          <div class="folder"><span>♫</span><b>Audio</b><small>Ambience / SFX</small></div>
+          <div class="folder"><span>◇</span><b>Textures</b><small>Wallpaper / carpet</small></div>
+          <div class="folder"><span>▣</span><b>Design Docs</b><small>GDD / room logic</small></div>
+        </div>
+      </div>
+
+      <!-- BUILD -->
+      <div class="tab-panel" id="build">
+        <div class="panel-header">
+          <div>
+            <span class="eyebrow">DEVELOPMENT</span>
+            <h2>BUILD / TEST</h2>
+          </div>
+          <span class="badge">LOCAL BROWSER</span>
+        </div>
+        <div class="build-terminal">
+          <div class="terminal-top">HORROR-ENGINE // DEVELOPMENT CONSOLE</div>
+          <div class="console-lines">
+            <p><i>&gt;</i> Initialising mansion environment...</p>
+            <p><i>&gt;</i> Loading room-shift prototype...</p>
+            <p><i>&gt;</i> Entity registry: <strong>ONLINE</strong></p>
+            <p><i>&gt;</i> Audio system: <strong>READY</strong></p>
+            <p><i>&gt;</i> Browser dashboard: <strong class="green">ONLINE</strong></p>
+            <p class="cursor"><i>&gt;</i> _</p>
+          </div>
+        </div>
+        <button class="primary" id="testButton">RUN ATMOSPHERE TEST →</button>
+      </div>
+
+    </section>
+  </main>
+
+  <footer>
+    <span>THE SHIFTING MANSION // ORIGINAL GAME PROJECT</span>
+    <span>INSPIRED BY THE SURVIVAL-HORROR GENRE — ORIGINAL ASSETS & DESIGN</span>
+  </footer>
+
+  <script src="app.js"></script>
+  <script>if("serviceWorker" in navigator){navigator.serviceWorker.register("./sw.js").catch(()=>{});}</script>
+</body>
+</html>

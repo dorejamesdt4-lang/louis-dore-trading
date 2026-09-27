@@ -1,0 +1,13 @@
+# Unreal Engine generated files
+UE5_Project/DerivedDataCache/
+UE5_Project/Intermediate/
+UE5_Project/Saved/
+UE5_Project/Build/
+UE5_Project/Binaries/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# User specific configuration
+UE5_Project/Config/Tags/
